@@ -1,0 +1,30 @@
+.nav {
+    /* border-bottom: 3px solid black; */
+    background-color: rgb(236, 236, 236);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: relative;
+    z-index: 999;
+}
+
+.navbar {
+    height: 70px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.navItems{
+    display: flex;
+    gap: 35px;
+}
+
+.cartIcon {
+   width: 20px; 
+   height: 20px;
+   cursor: pointer;
+}
