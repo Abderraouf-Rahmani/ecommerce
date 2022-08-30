@@ -1,2 +1,2 @@
 # ecommerce
-self explainatory
+self explainatory for now XD
