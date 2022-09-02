@@ -4,8 +4,14 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #F3F3F3;
 }
-
+h1,
+h2,
+h3{
+  margin: 0px;
+  padding: 0;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -19,6 +25,116 @@ a {
   max-width: 1200px;
   margin: 0px auto;
 }
+
+.navbar-container{
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo{
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.nav-items{
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 16px;
+}
+
+.nav-item{
+  cursor: pointer;
+}
+
+.nav-item:hover{
+  text-decoration: underline;
+}
+
+
+.cart-container{
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+
+.cart-products{
+  background-color: rgb(67, 67, 67);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 5px;
+}
+
+/* ====================== HOME HEADER ====================== */
+
+.home-header-container{
+  height: 500px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "one two four"
+    "one two four-low"
+  ;
+  gap: 13px;
+}
+
+.featured{
+  overflow: hidden;
+  position: relative;
+}
+.header-one{
+  background-color:#C6CFCF ;
+  grid-area: one;
+}
+.header-two{
+  background-color:#C0D6C3 ;
+  grid-area: two;
+
+}
+.header-four{
+  background-color:#939393 ;
+  grid-area: four;
+
+}
+
+.header-four-low{
+  background-color:#c97878 ;
+  grid-area: four-low;
+
+}
+
+
+.header-img{
+  width: 100%;
+  transform: scale(1.2);
+  margin-top: 50px;
+}
+
+.featured-title {
+  position: absolute;
+  z-index: 999;
+  bottom: 30px;
+  left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* @media (prefers-color-scheme: dark) {
   html {
