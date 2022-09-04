@@ -1,0 +1,68 @@
+.carousel{
+    height: fit-content;
+    position: relative;
+}
+
+
+.carouselVp{
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.cardsWrap{
+    display: flex;
+    gap: 19px;
+    width: fit-content;
+    transition: .1s ease-out;
+}
+
+.carouselCard{
+    width: 224.8px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+}
+
+
+.cardImg{
+    width: 100%;
+}
+
+.cardPrice{
+    font-weight: 700;
+    padding-bottom: 19px;
+}
+.cardPrice, .cardTitle{
+    padding-left:19px ;
+}
+
+.navRight, .navLeft{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    width: 60px;
+}
+
+
+.navRight{
+    right: -90px;
+}
+
+.navLeft{
+    left: -52px;
+}
+
+.navRight > svg, .navLeft > svg {
+    cursor: pointer;
+    opacity: .1;
+}
+
+.navRight > svg:hover, .navLeft > svg:hover{
+    opacity: .7;
+}
