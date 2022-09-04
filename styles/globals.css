@@ -127,10 +127,68 @@ a {
 }
 
 
+/* =================== PRODUCTS SECTION ================ */
+.products{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.products-section-container{
+  display: flex;
+  gap: 19px;
+}
+
+
+.section-title {
+  margin-bottom: 35px;
+}
+
+
+.category-card{
+  height: 230px;
+  background-color: rgb(215, 215, 215);
+  flex-grow: 1;
+  cursor: pointer;
+}
 
 
 
+/* ============== featured banner =========== */
 
+.featured-banner-container{
+  display: flex;
+
+}
+
+.featured-left, .featured-right {
+  width: 50%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.featured-left{
+  background-color: #e9e9e9;
+  padding: 60px  50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-title{
+  font-size: 30px;
+}
+
+
+/* =========== TRENDING SECTION ============== */
+
+
+.trending {
+  margin:100px 0px ;
+}
 
 
 

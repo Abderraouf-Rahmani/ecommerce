@@ -1,16 +1,19 @@
 
 .actionBtn{
   padding: 10px 13px;  
-  background-color: transparent;
   border: 3px solid var(--action-btn-color);
   font-weight: 700;
   transition: .1s ease-in-out;
   box-sizing: border-box !important;
   width: fit-content;
+  color: white;
+  background-color: black;
+  outline: 2px solid black;
+  outline-offset: -2px;
 }
 
 .actionBtn:hover{
-    background-color: black;
-    color: white;
+  background-color: transparent;
+  color: black;
 }
 
