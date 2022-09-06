@@ -4,13 +4,13 @@ import React from 'react'
 const Footer = () => {
   return (
     <div id='footer'>
-        <div className="news-letter">
-            <h2>Newsletter</h2>
+        <div className="newsletter">
             <div className="container">
-                <div className="news-letter-form-container">
-                    <input type="email" name="email" id="nl-email" />                    
+            <h2>Newsletter</h2>
+                <form className="newsletter-form-container">
+                    <input type="email" name="email" id="nl-email" placeholder='john@doe.com' />                    
                     <button type='submit' className='nl-submit'>Subscribe</button>
-                </div>
+                </form>
             </div>
         </div>
         <div className="footer-menu">
@@ -20,7 +20,7 @@ const Footer = () => {
                             <Link href='#navbar'>
                                 <span className="nav-item">About</span>
                             </Link>
-                            
+
                             <Link href='#navbar'>
                                 <span className="nav-item">Store locator</span>
                             </Link>
@@ -41,10 +41,10 @@ const Footer = () => {
                                 <span className="nav-item">Contact Us</span>
                             </Link>
                     </div>
+                <div className="cr">Built with love</div>
                 </div>
             </div>
         </div>
-        <div className="cr">Built with love</div>
     </div>
 
   )
