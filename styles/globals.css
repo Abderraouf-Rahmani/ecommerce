@@ -154,7 +154,9 @@ a {
 
 
 /* ============== featured banner =========== */
-
+#banner {
+  margin: 100px 0px;
+}
 .featured-banner-container{
   display: flex;
 
@@ -172,7 +174,7 @@ a {
 
 .featured-left{
   background-color: #e9e9e9;
-  padding: 60px  50px;
+  padding: 60px  120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
