@@ -10,13 +10,11 @@ import Footer from '../components/footer/Footer'
 export default function Home() {
   return (
 <>
-<Navbar />
 <HeroBanner />
 <Products />
 <FeaturedBanner />
 <Trending />
 <LowerFeaturedBanner />
-<Footer />
 </>    
   )
 }

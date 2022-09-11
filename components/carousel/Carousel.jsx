@@ -9,9 +9,7 @@ const Carousel = () => {
 
     const carosel = (direction) =>{
         let cardWidth = getComputedStyle(card.current).width
-        // console.log(cardWidth)
         let cardsWrapperWidth = parseInt(getComputedStyle(cardsWrapper.current).width.replace('px', ''))
-        // console.log(parseInt(cardsWrapperWidth))
 
        
         
@@ -24,7 +22,6 @@ const Carousel = () => {
             cardsWrapper.current.style.transform = `translateX(calc(${translated}px - ${cardWidth} - 19px))`
             setTranslated(translated - 250)
         }
-        console.log(translated)
 
     }
   return (
