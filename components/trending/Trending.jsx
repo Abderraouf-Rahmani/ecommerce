@@ -1,18 +1,18 @@
-import React from 'react'
-import Carousel from '../carousel/Carousel'
+import React from "react";
+import Carousel from "../carousel/Carousel";
 
-const Trending = () => {
+const Trending = ({ title }) => {
   return (
-   <>
-    <section className="trending">
+    <>
+      <section className="trending">
         <div className="container">
-            <h2>Trending</h2>
-            <br />
-                <Carousel />
+          <h2>{title}</h2>
+          <br />
+          <Carousel />
         </div>
-    </section>
-   </>
-  )
-}
+      </section>
+    </>
+  );
+};
 
-export default Trending
+export default Trending;

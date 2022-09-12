@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
-const Products = () => {
+const Products = ({ title }) => {
   return (
     <>
       <section id="products" className="products">
         <div className="container">
           <div className="section-title">
-            <h2>Categories</h2>
+            <h2>{title}</h2>
           </div>
 
           <div className="products-section-container">

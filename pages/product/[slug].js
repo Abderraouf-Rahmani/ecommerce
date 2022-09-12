@@ -1,18 +1,14 @@
-import React from 'react'
-import FeaturedBanner from '../../components/featuredBanner/FeaturedBanner'
-import HeroBanner from '../../components/heroBanner/HeroBanner'
-import Products from '../../components/products/Products'
-import Trending from '../../components/trending/Trending'
+import React from "react";
+import Product from "../../components/product/Product";
+import Trending from "../../components/trending/Trending";
 
-const Home = () => {
+const ProductPage = () => {
   return (
     <>
-        <HeroBanner />
-        {/* <Products /> */}
-        <FeaturedBanner />
-        {/* <Trending /> */}
+      <Product />
+      <Trending title="Peaple Also Viewed" />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default ProductPage;

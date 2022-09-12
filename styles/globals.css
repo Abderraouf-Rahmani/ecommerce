@@ -387,6 +387,134 @@ a {
     display: block;
   }
 }
+
+/* ============ PRODUCT PAGE SECTION ================= */
+
+.product-details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-left,
+.product-right {
+  width: 50%;
+}
+/* == left side == */
+.product-visualls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-img-container {
+  width: 80%;
+}
+
+.main-img {
+  width: 100%;
+}
+
+.all-imgs-container {
+  display: flex;
+  width: 60%;
+  gap: 10px;
+}
+
+.img-container {
+  flex: 1;
+  flex-shrink: 1;
+  /* border: 1px solid black; */
+}
+
+.an-img {
+  width: 100%;
+}
+
+/* == right side == */
+
+.product-right {
+  background-color: #f1f1f1;
+  position: relative;
+  padding-top: 5%;
+}
+.devider {
+  position: absolute;
+  bottom: 0px;
+  width: 3px;
+  height: 70%;
+  background-color: rgb(10, 10, 10);
+}
+
+.product-right-details {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  gap: 40px;
+  margin-top: 15%;
+}
+
+.item-ids {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10%;
+  height: fit-content;
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 33px;
+  transform: translateX(-50%);
+}
+
+.item-code {
+  color: rgb(175, 175, 175);
+}
+
+.item-price {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.quantity {
+  display: flex;
+  width: fit-content;
+  /* border: 1px solid black; */
+  height: fit-content;
+}
+
+.qnt-changer {
+  background-color: #fff;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.qnt-changer:hover {
+  background-color: rgb(218, 218, 218);
+}
+
+.add-to-cart-btn {
+  background-color: rgb(55, 55, 55);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
