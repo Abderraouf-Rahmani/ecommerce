@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav id="navbar" className="navbar">
         <div className="container">
           <div className="navbar-container">
-            <div className="navbar-logo">LOGO.here</div>
+            <div className="navbar-logo">単純</div>
             <div className="nav-items">
               <div className="nav-links nav-items">
                 <Link href="product/navbar">

@@ -423,11 +423,25 @@ a {
 .img-container {
   flex: 1;
   flex-shrink: 1;
-  /* border: 1px solid black; */
+  display: block;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.img-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  outline: 1px solid rgb(189, 189, 189);
+}
+
+.img-container:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
 }
 
 .an-img {
   width: 100%;
+  object-fit: cover;
 }
 
 /* == right side == */
@@ -513,6 +527,23 @@ a {
   font-weight: 600;
   cursor: pointer;
   width: fit-content;
+}
+
+.product-specs {
+  margin-top: 100px;
+  display: grid;
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-rows: auto;
+  gap: 30px;
+}
+
+.spec {
+  /* background-color: rgb(242, 242, 242); */
+}
+.spec-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 17px;
 }
 
 /* @media (prefers-color-scheme: dark) {
