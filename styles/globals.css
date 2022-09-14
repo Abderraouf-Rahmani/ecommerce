@@ -555,3 +555,71 @@ a {
     background: black;
   }
 } */
+
+/* ============== CART SLIDER ============= */
+
+.opac-bg {
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.328);
+}
+
+.slide-cart-container {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 500px;
+  height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.cart-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cart-item {
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  /* justify-content: space-between; */
+  /* gap: 13px; */
+  height: 130px;
+  width: 100%;
+}
+
+.cart-item-left {
+  width: 130px;
+  /* aspect-ratio: 1/1; */
+}
+
+.cart-item-img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.cart-item-right {
+  width: fit-content;
+  justify-self: flex-end;
+}
+
+.cart-item-mid {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gnt-changer-container {
+  display: flex;
+}

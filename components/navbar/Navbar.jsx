@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Link from "next/link";
+import CartSlide from "../cart/CartSlide";
 
 const Navbar = () => {
   const menuContainer = useRef();
@@ -12,6 +13,8 @@ const Navbar = () => {
   };
   return (
     <>
+      <CartSlide />
+
       <nav id="navbar" className="navbar">
         <div className="container">
           <div className="navbar-container">
