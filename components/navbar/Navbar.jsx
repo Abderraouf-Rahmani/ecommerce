@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CartSlide from "../cart/CartSlide";
 
 const Navbar = () => {
   const menuContainer = useRef();
+  // const cartContainer = useRef();
+  const [isCartVisible, setIsCartVisible] = useState(true);
+
+  useEffect(() => {
+    console.log(isCartVisible);
+  }, [isCartVisible]);
+
   const handleResponsiveMenu = (ResMenuState) => {
     if (ResMenuState) {
       menuContainer.current.style.display = "flex";
@@ -11,9 +18,10 @@ const Navbar = () => {
       menuContainer.current.style.display = "none";
     }
   };
+
   return (
     <>
-      <CartSlide />
+      <CartSlide cartState={isCartVisible} />
 
       <nav id="navbar" className="navbar">
         <div className="container">
@@ -32,7 +40,12 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              <span className="cart-container">
+              <span
+                onClick={() => {
+                  setIsCartVisible(!isCartVisible);
+                }}
+                className="cart-container"
+              >
                 <span className="cart">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const CartSlide = () => {
+const CartSlide = ({ cartState }) => {
+  const [cartStatus, setCartStatus] = useState(cartState);
+  const bgOpac = useRef();
+  useEffect(() => {
+    if (cartStatus) {
+      bgOpac.current.style.display = "block";
+    } else {
+      bgOpac.current.style.display = "none";
+    }
+  }, [cartStatus]);
   return (
     <>
-      <div className="opac-bg">
+      <div
+        className="opac-bg"
+        ref={bgOpac}
+        onClick={() => {
+          setCartStatus(!cartStatus);
+        }}
+      >
         <div className="slide-cart-container">
           <div className="cart-header">
             <div className="slide-cart-title">
@@ -37,9 +52,13 @@ const CartSlide = () => {
                 <h4 className="cart-item-title">Pop-Up Toaster 9000</h4>
                 <span className="cart-item-code">9D8F5F75</span>
                 <div className="gnt-changer-container">
-                  <div className="qnt-minus">-</div>
-                  <div className="qnt">-</div>
-                  <div className="qnt-plus">+</div>
+                  <div className="cart-qnt-changer qnt-minus">
+                    <span>&#8722;</span>
+                  </div>
+                  <div className="cart-qnt">1</div>
+                  <div className="cart-qnt-changer qnt-plus">
+                    <span>&#43;</span>
+                  </div>
                 </div>
               </div>
               <div className="cart-item-right">
@@ -54,7 +73,7 @@ const CartSlide = () => {
                     <path fill="none" d="M0 0h24v24H0z" />
                     <path
                       d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
-                      fill="rgba(0,0,0,1)"
+                      fill="rgba(225,225,225,1)"
                     />
                   </svg>
                 </div>
@@ -72,9 +91,13 @@ const CartSlide = () => {
                 <h4 className="cart-item-title">Pop-Up Toaster 9000</h4>
                 <span className="cart-item-code">9D8F5F75</span>
                 <div className="gnt-changer-container">
-                  <div className="qnt-minus">-</div>
-                  <div className="qnt">-</div>
-                  <div className="qnt-plus">+</div>
+                  <div className="cart-qnt-changer qnt-minus">
+                    <span>&#8722;</span>
+                  </div>
+                  <div className="qnt">1</div>
+                  <div className="cart-qnt-changer qnt-plus">
+                    <span>&#43;</span>
+                  </div>
                 </div>
               </div>
               <div className="cart-item-right">
