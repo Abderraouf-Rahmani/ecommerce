@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-
-const HeroBanner = () => {
+import { urlFor } from "../../lib/client";
+const HeroBanner = ({ hero }) => {
   return (
     <>
       <div className="home-header">
@@ -10,11 +10,11 @@ const HeroBanner = () => {
             <Link href="#navbar">
               <div className="featured header-one">
                 <div className="header-img-container">
-                  <h2 className="featured-title">Live comfortably</h2>
+                  <h2 className="featured-title">{hero.bigSqr.title}</h2>
                 </div>
                 <img
                   className="header-img"
-                  src="https://www.ikea.com/ext/ingkadam/m/5140a5378a2069ea/original/PH161018-crop001.jpg"
+                  src={urlFor(hero.bigSqr.image)}
                   alt="featured our best seller"
                 />
               </div>
@@ -22,11 +22,11 @@ const HeroBanner = () => {
             <Link href="#navbar">
               <div className="featured header-two">
                 <div className="header-img-container">
-                  <h2 className="featured-title">HW Skincare</h2>
+                  <h2 className="featured-title">{hero.tallRect.title}</h2>
                 </div>
                 <img
                   className="header-img headerimg-two"
-                  src="https://i.pinimg.com/564x/7a/94/d4/7a94d4f79f79146703cab823170e1609.jpg"
+                  src={urlFor(hero.tallRect.image)}
                   alt="featured our best seller"
                 />
               </div>
@@ -34,13 +34,11 @@ const HeroBanner = () => {
             <Link href="#navbar">
               <div className="featured header-four">
                 <div className="header-img-container">
-                  <h2 className="featured-title">
-                    Kitchen & <br /> Dining
-                  </h2>
+                  <h2 className="featured-title">{hero.topLittleSqr.title}</h2>
                 </div>
                 <img
                   className="header-img"
-                  src="https://www.ikea.com/images/traditional-kitchens-bb61df5ab1659ce24121879f7ec42300.jpg"
+                  src={urlFor(hero.topLittleSqr.image)}
                   alt="featured our best seller"
                 />
               </div>
@@ -48,11 +46,13 @@ const HeroBanner = () => {
             <Link href="#navbar">
               <div className="featured header-four-low">
                 <div className="header-img-container">
-                  <h2 className="featured-title">Home Electronics</h2>
+                  <h2 className="featured-title">
+                    {hero.bottomLittleSqr.title}
+                  </h2>
                 </div>
                 <img
                   className="header-img"
-                  src="https://www.ikea.com/pt/en/images/products/lillhult-usb-a-to-usb-c-dark-grey__1045694_pe842698_s5.jpg"
+                  src={urlFor(hero.bottomLittleSqr.image)}
                   alt="featured our best seller"
                 />
               </div>

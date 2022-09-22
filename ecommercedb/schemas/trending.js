@@ -1,29 +1,8 @@
 export default {
-  name: "product",
-  title: "Product",
+  name: "trending",
+  title: "Trending Products",
   type: "document",
   fields: [
-    {
-      name: "isFeatured",
-      title: "Featured",
-      type: "boolean",
-    },
-    {
-      name: "isTrending",
-      title: "Trending",
-      type: "boolean",
-    },
-    {
-      name: "isWide",
-      title: "Wide",
-      type: "boolean",
-    },
-    {
-      name: "productCategory",
-      title: "Category",
-      type: "reference",
-      to: [{ type: "category" }],
-    },
     {
       name: "image",
       title: "Image",

@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
+const { withSuperjson } = require("next-superjson");
 
-module.exports = nextConfig
+module.exports = withSuperjson()(nextConfig);

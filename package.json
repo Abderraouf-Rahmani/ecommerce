@@ -9,17 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "@sanity/client": "^3.2.0",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.25.0",
     "canvas-confetti": "^1.5.1",
+    "next": "12.2.5",
     "next-sanity-image": "^3.2.1",
+    "next-superjson": "^0.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
-    "stripe": "^8.209.0"
+    "stripe": "^8.209.0",
+    "superjson": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "8.23.0",

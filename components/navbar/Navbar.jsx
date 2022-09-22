@@ -7,9 +7,7 @@ const Navbar = () => {
   // const cartContainer = useRef();
   const [isCartVisible, setIsCartVisible] = useState(true);
 
-  useEffect(() => {
-    console.log(isCartVisible);
-  }, [isCartVisible]);
+  useEffect(() => {}, [isCartVisible]);
 
   const handleResponsiveMenu = (ResMenuState) => {
     if (ResMenuState) {
