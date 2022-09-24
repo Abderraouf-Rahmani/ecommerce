@@ -13,7 +13,7 @@ const Home = ({ results, heroGrid, trending, topBanner, bottomBanner }) => {
       <HeroBanner hero={heroGrid.result[0]} />
       <Products products={results.result} />
       <FeaturedBanner featuredBanner={topBanner?.result[0]} />
-      <Trending trending={trending.result} />
+      {/* <Trending trending={trending.result} /> */}
       <LowerFeaturedBanner bannerBottom={bottomBanner.result[0]} />
     </>
   );

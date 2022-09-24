@@ -5,7 +5,7 @@ import ActionButton from "../buttons/ActionButton";
 
 const CategoryProduct = ({ property, productDetails }) => {
   return (
-    <Link href="#">
+    <Link href={`/product/${encodeURIComponent(productDetails.slug.current)}`}>
       <div className={`category-product ${property}`}>
         <div className="category-product-header">
           <div
@@ -22,16 +22,24 @@ const CategoryProduct = ({ property, productDetails }) => {
           {property === "wide" && (
             <>
               <div className="wide-right-container">
-                <div className="wide-title">{productDetails.name}</div>
-                <ActionButton text="VIEW MORE" link="#" />
+                <div className="wide-title">{productDetails.wideCardTitle}</div>
+                <ActionButton text="VIEW MORE" link={productDetails.slug} />
               </div>
             </>
           )}
         </div>
-        <div className="category-product-title">
-          <span>{productDetails.name}</span>
-        </div>
-        <div className="category-product-price">{productDetails.price}$</div>
+        {property !== "wide" && (
+          <>
+            <div className="category-product-details">
+              <div className="category-product-title">
+                <span>{productDetails.name}</span>
+              </div>
+              <div className="category-product-price">
+                {productDetails.price}$
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </Link>
   );

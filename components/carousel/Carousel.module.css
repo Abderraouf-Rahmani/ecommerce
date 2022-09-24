@@ -1,68 +1,78 @@
-.carousel{
-    height: fit-content;
-    position: relative;
+.carousel {
+  height: fit-content;
+  position: relative;
 }
 
-
-.carouselVp{
-    width: 100%;
-    overflow: hidden;
+.carouselVp {
+  width: 100%;
+  overflow: hidden;
 }
 
-
-.cardsWrap{
-    display: flex;
-    gap: 19px;
-    width: fit-content;
-    transition: .1s ease-out;
+.cardsWrap {
+  display: flex;
+  gap: 19px;
+  width: fit-content;
+  transition: 0.1s ease-out;
 }
 
-.carouselCard{
-    width: 224.8px;
-    height: fit-content;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #fff;
+.carouselCard {
+  width: calc((1200px - (19px * 6)) / 5);
+  flex-grow: 1;
+  /* height: fit-content; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: 2px solid rgba(0, 0, 0, 0.071);
+  outline-offset: -2px;
+  transition: outline 0.2s ease-out;
 }
 
-
-.cardImg{
-    width: 100%;
+.carouselCard:hover {
+  outline: 2px solid rgb(38, 38, 38);
+  /* outline-offset: -2px; */
 }
 
-.cardPrice{
-    font-weight: 700;
-    padding-bottom: 19px;
-}
-.cardPrice, .cardTitle{
-    padding-left:19px ;
+.cardImg {
+  width: 100%;
 }
 
-.navRight, .navLeft{
-    position: absolute;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    z-index: 999;
-    width: 60px;
+.cardPrice {
+  font-weight: 700;
+  padding-bottom: 19px;
+}
+.cardPrice,
+.cardTitle {
+  padding-left: 19px;
 }
 
-
-.navRight{
-    right: -90px;
+.navRight,
+.navLeft {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  width: 60px;
 }
 
-.navLeft{
-    left: -52px;
+.navRight {
+  right: 0px;
 }
 
-.navRight > svg, .navLeft > svg {
-    cursor: pointer;
-    opacity: .1;
+.navLeft {
+  left: 0px;
 }
 
-.navRight > svg:hover, .navLeft > svg:hover{
-    opacity: .7;
+.navRight > svg,
+.navLeft > svg {
+  cursor: pointer;
+  opacity: 0.1;
+}
+
+.navRight > svg:hover,
+.navLeft > svg:hover {
+  opacity: 0.7;
 }

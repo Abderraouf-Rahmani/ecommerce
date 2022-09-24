@@ -6,7 +6,6 @@ const ProductCard = ({ product }) => {
   return (
     <Link href={"product/" + product.slug.current}>
       <div className="category-card">
-        {console.log(product)}
         <img
           className="product-img product-img-top"
           src={urlFor(product.image[0])}

@@ -1,44 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
+import { urlFor } from "../../lib/client";
 
-const Product = () => {
+const Product = ({ product }) => {
+  const { name, ref, desc, image, price, characteristics } = product;
   const specsGridColumnsNum = useRef();
-  let numOfSpecs = [
-    {
-      title: "Size",
-      content: "24cm * 20cm * 13cm",
-    },
-    {
-      title: "Weight",
-      content: "0.22kg",
-    },
-    {
-      title: "Max Capacity",
-      content: "500ml (enough for two cups of hot water)",
-    },
-    {
-      title: "Approximate Boilling Time",
-      content: "~ 2min",
-    },
-    {
-      title: "Cord",
-      content: "150 (cm)",
-    },
-  ];
 
   const [qnt, setQnt] = useState(1);
-
+  const [imgIndex, setImgIndex] = useState(0);
   useEffect(() => {
-    specsGridColumnsNum.current.style.gridTemplateColumns = `repeat(${numOfSpecs.length}, 1fr)`;
-    const miniViewImgs = window.document.querySelectorAll(".img-container");
-    const bigImg = window.document.querySelector(".main-img");
-    // console.group(miniViewImgs);
-    miniViewImgs.forEach((miniImg) => {
-      miniImg.addEventListener("click", () => {
-        miniImg.firstChild.getAttribute("src");
-        bigImg.setAttribute("src", `${miniImg.firstChild.getAttribute("src")}`);
-      });
-    });
-  }, []);
+    specsGridColumnsNum.current.style.gridTemplateColumns = `repeat(${characteristics.length}, 1fr)`;
+    // const miniViewImgs = window.document.querySelectorAll(".img-container");
+  }, [characteristics]);
 
   const UpdateCart = (change) => {
     if (change === "+") {
@@ -50,6 +22,7 @@ const Product = () => {
   };
   return (
     <>
+      {console.log(name)}
       <section className="product-details">
         <div className="container">
           <div className="product-details-container">
@@ -57,50 +30,39 @@ const Product = () => {
               <div className="product-visualls">
                 <div className="main-img-container">
                   <img
-                    src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260/4547315968619_1260.jpg"
+                    src={urlFor(image[imgIndex])}
                     alt="Pop-up Toaster, white, 45cm"
                     className="main-img"
                   />
                 </div>
                 <div className="all-imgs-container">
-                  <button className="img-container">
-                    <img
-                      src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260/4547315968619_1260.jpg"
-                      alt="top view"
-                      className="an-img"
-                    />
-                  </button>
-                  <button className="img-container">
-                    <img
-                      src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260_00/4547315968619_02_1260.jpg"
-                      alt="top view"
-                      className="an-img"
-                    />
-                  </button>
-                  <button className="img-container">
-                    <img
-                      src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260_00/4547315968619_03_1260.jpg"
-                      alt="top view"
-                      className="an-img"
-                    />
-                  </button>
+                  {image.map((img, i) => (
+                    <button
+                      key={img._key}
+                      className="img-container"
+                      onClick={() => {
+                        setImgIndex(i);
+                      }}
+                    >
+                      <img
+                        src={urlFor(img)}
+                        alt="top view"
+                        className="an-img"
+                      />
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
             <div className="product-right">
               <div className="devider"></div>
               <div className="item-ids">
-                <div className="item-title">Pop-Up Toaster</div>
-                <div className="item-code">Item Code: 2584626</div>
+                <div className="item-title">{name}</div>
+                <div className="item-code">Item Code: {ref}</div>
               </div>
               <div className="product-right-details">
-                <div className="item-desc">
-                  Featuring some random words just to make this description a
-                  bit content ;) Lorem ipsum dolor sit amet, consectetur
-                  adipisicing elit. Amet iure aliquid, unde nostrum obcaecati
-                  quas voluptates!
-                </div>
-                <div className="item-price">$59.95</div>
+                <div className="item-desc">{desc}</div>
+                <div className="item-price">{price}$</div>
                 <div className="quantity">
                   <div
                     onClick={() => {
@@ -124,10 +86,10 @@ const Product = () => {
             </div>
           </div>
           <div ref={specsGridColumnsNum} className="product-specs">
-            {numOfSpecs.map((spec) => (
-              <div key={spec.title} className="spec">
-                <div className="spec-title">{spec.title}:</div>
-                <div className="spec-desc">{spec.content}</div>
+            {characteristics.map((spec) => (
+              <div key={spec._key} className="spec">
+                <div className="spec-title">{spec.spec}:</div>
+                <div className="spec-desc">{spec.char}</div>
               </div>
             ))}
           </div>

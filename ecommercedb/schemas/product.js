@@ -19,6 +19,12 @@ export default {
       type: "boolean",
     },
     {
+      name: "wideCardTitle",
+      title: "Wide Card Title",
+      type: "string",
+      hidden: ({ document }) => !document?.isWide,
+    },
+    {
       name: "productCategory",
       title: "Category",
       type: "reference",
