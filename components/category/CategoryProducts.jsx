@@ -2,42 +2,29 @@ import React, { useEffect, useState } from "react";
 import CategoryHeader from "./CategoryHeader";
 import CategoryProduct from "./CategoryProduct";
 
-const CategoryProducts = ({ products }) => {
-  const [productsArr, setProductsArr] = useState(["loading"]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [urlPath, setUrlPath] = useState();
-
-  useEffect(() => {
-    setIsLoading(true);
-    setUrlPath(window.location.pathname);
-    console.log(window.location.pathname);
-    setProductsArr(products);
-    setIsLoading(false);
-  }, [urlPath, isLoading, products]);
-
+const CategoryProducts = ({ loadingState, products }) => {
+  const [isLoading, setIsLoading] = useState(loadingState);
   return (
     <>
-      {productsArr[0] === "loading" ? (
-        <>
-          <div className="loading">
-            <h1>loading...</h1>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="container">
-            <div className="category-products">
-              {productsArr.map((product) => (
+      <div className="container">
+        <div className="category-products">
+          {isLoading ? (
+            <>
+              <h1>Loading</h1>
+            </>
+          ) : (
+            <>
+              {products?.map((product) => (
                 <CategoryProduct
                   key={product._rev}
                   property={product.isWide ? "wide" : "normal"}
                   productDetails={product}
                 />
               ))}
-            </div>
-          </div>
-        </>
-      )}
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 };

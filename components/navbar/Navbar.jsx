@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
             <div className="nav-items">
               <div className="nav-links nav-items">
-                <Link href="product/navbar">
+                <Link href="category/all">
                   <span className="nav-item">CATEGORIES</span>
                 </Link>
                 <Link href="#navbar">

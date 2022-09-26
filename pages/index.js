@@ -4,39 +4,47 @@ import Products from "../components/products/Products";
 import FeaturedBanner from "../components/featuredBanner/FeaturedBanner";
 import Trending from "../components/trending/Trending";
 import LowerFeaturedBanner from "../components/lowerFeaturedBanner/LowerFeaturedBanner";
-import superjson from "superjson";
-import client from "../lib/client";
+import { client } from "../lib/client";
+import CategoryProducts from "../components/category/CategoryProducts";
 
 const Home = ({ results, heroGrid, trending, topBanner, bottomBanner }) => {
   return (
     <>
-      <HeroBanner hero={heroGrid.result[0]} />
-      <Products products={results.result} />
-      <FeaturedBanner featuredBanner={topBanner?.result[0]} />
-      {/* <Trending trending={trending.result} /> */}
-      <LowerFeaturedBanner bannerBottom={bottomBanner.result[0]} />
+      <HeroBanner hero={heroGrid[0]} />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="container">
+        <h2 className="section-title">Prodcuts we are proud of</h2>
+      </div>
+      <CategoryProducts products={results} />
+      <FeaturedBanner featuredBanner={topBanner[0]} />
+      <Trending title="Trending Now" trendProducts={results} />
+      <LowerFeaturedBanner bannerBottom={bottomBanner[0]} />
     </>
   );
 };
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "product"]';
-  const url = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
-  const results = await fetch(url).then((res) => res.json());
+  const query = '*[_type == "product"][0..6]';
+  // const url = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
+  const results = await client.fetch(query);
 
   const HeroQuery = '*[_type == "hero"]';
-  const HeroUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${HeroQuery}`;
-  const heroGrid = await fetch(HeroUrl).then((res) => res.json());
+  // const HeroUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${HeroQuery}`;
+  const heroGrid = await client.fetch(HeroQuery);
 
   const topBannerQuery = '*[_type == "topBanner"]';
-  const topBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${topBannerQuery}`;
-  const topBanner = await fetch(topBannerUrl).then((res) => res.json());
+  // const topBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${topBannerQuery}`;
+  const topBanner = await client.fetch(topBannerQuery);
 
   const bottomBannerQuery = '*[_type == "BottomBanner"]';
-  const bottomBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${bottomBannerQuery}`;
-  const bottomBanner = await fetch(bottomBannerUrl).then((res) => res.json());
+  // const bottomBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${bottomBannerQuery}`;
+  const bottomBanner = await client.fetch(bottomBannerQuery);
 
-  const trendingQuery = '*[_type == "trending"]';
+  const trendingQuery = '*[_type == "product"]';
   const trendingUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${trendingQuery}`;
   const trending = await fetch(trendingUrl).then((res) => res.json());
 

@@ -5,7 +5,7 @@ import ActionButton from "../buttons/ActionButton";
 
 const CategoryProduct = ({ property, productDetails }) => {
   return (
-    <Link href={`/product/${encodeURIComponent(productDetails.slug.current)}`}>
+    <Link href={`/product/${productDetails?.slug?.current}`}>
       <div className={`category-product ${property}`}>
         <div className="category-product-header">
           <div
@@ -14,7 +14,7 @@ const CategoryProduct = ({ property, productDetails }) => {
             }`}
           >
             <img
-              src={urlFor(productDetails.image[0])}
+              src={urlFor(productDetails?.image[0])}
               alt="a product"
               className="category-product-img"
             />

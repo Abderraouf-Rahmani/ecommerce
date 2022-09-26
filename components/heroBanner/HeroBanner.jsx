@@ -10,11 +10,11 @@ const HeroBanner = ({ hero }) => {
             <Link href="#navbar">
               <div className="featured header-one">
                 <div className="header-img-container">
-                  <h2 className="featured-title">{hero.bigSqr.title}</h2>
+                  <h2 className="featured-title">{hero?.bigSqr?.title}</h2>
                 </div>
                 <img
                   className="header-img"
-                  src={urlFor(hero.bigSqr.image)}
+                  src={urlFor(hero.bigSqr?.image)}
                   alt="featured our best seller"
                 />
               </div>

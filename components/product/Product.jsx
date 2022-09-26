@@ -22,7 +22,6 @@ const Product = ({ product }) => {
   };
   return (
     <>
-      {console.log(name)}
       <section className="product-details">
         <div className="container">
           <div className="product-details-container">

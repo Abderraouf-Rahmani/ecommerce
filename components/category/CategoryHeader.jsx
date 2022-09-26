@@ -9,10 +9,6 @@ const CategoryHeader = ({ categoryName, categories }) => {
     // window.location.replace(`/category/${categoryChosen.toLowerCase()}`);
     router.push({
       pathname: `/category/${categoryChosen.toLowerCase()}`,
-      // query: {
-      //   postId,
-      //   param
-      // }
     });
   };
 
@@ -44,8 +40,8 @@ const CategoryHeader = ({ categoryName, categories }) => {
             <option value="all">All</option>
 
             {categories?.map((category) => (
-              <option key={category} value={category}>
-                {category}
+              <option key={category._id} value={category.categoryName}>
+                {category.categoryName}
               </option>
             ))}
           </select>

@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "../../components/product/Product";
 import Trending from "../../components/trending/Trending";
-// import client from "../../lib/client";
+import { client } from "../../lib/client";
 
 const ProductPage = ({ product, products }) => {
   return (
@@ -15,10 +15,18 @@ const ProductPage = ({ product, products }) => {
 export default ProductPage;
 
 export const getStaticPaths = async () => {
-  const productsQueryUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22product%22%5D`;
-  const products = await fetch(productsQueryUrl).then((res) => res.json());
+  // const productsQueryUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22product%22%5D%7B%0A%20%20slug%7B%0A%20%20current%0A%7D%0A%7D`;
 
-  const paths = products?.result.map((product) => ({
+  const query = `*[type == 'product']{
+    slug {
+      current
+    }
+  }`;
+
+  // const productsSlug = await fetch(productsQueryUrl).then((res) => res.json());
+  const productsSlug = await client.fetch(query);
+
+  const paths = await productsSlug.map((product) => ({
     params: {
       slug: product.slug.current,
     },
