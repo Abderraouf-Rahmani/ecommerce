@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/Image";
+import Image from "next/image";
 const CartSlide = ({ cartState }) => {
   const [cartStatus, setCartStatus] = useState(cartState);
   const bgOpac = useRef();
