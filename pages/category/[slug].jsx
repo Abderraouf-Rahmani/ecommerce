@@ -82,8 +82,8 @@ const Category = ({ slug, products, categories }) => {
         <div className="category-products">
           {isLoading ? (
             <>
-              {skeletonArr.map((skeleton) => (
-                <div className="skeleton">
+              {skeletonArr.map((skeleton, i) => (
+                <div key={i} className="skeleton">
                   <div className="skeleton-img"></div>
                   <div className="skeleton-title"></div>
                   <div className="skeleton-price"></div>
