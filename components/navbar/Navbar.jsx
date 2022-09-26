@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <CartSlide cartState={isCartVisible} />
+      {/* <CartSlide cartState={isCartVisible} /> */}
 
       <nav id="navbar" className="navbar">
         <div className="container">

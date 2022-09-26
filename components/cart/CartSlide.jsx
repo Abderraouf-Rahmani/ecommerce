@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import Image from "next/Image";
 const CartSlide = ({ cartState }) => {
   const [cartStatus, setCartStatus] = useState(cartState);
   const bgOpac = useRef();
@@ -42,10 +42,11 @@ const CartSlide = ({ cartState }) => {
           <div className="cart-body">
             <div className="cart-item">
               <div className="cart-item-left">
-                <img
+                <Image
                   src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260_00/4547315968619_03_1260.jpg"
                   alt="product img"
                   className="cart-item-img"
+                  layout="fill"
                 />
               </div>
               <div className="cart-item-mid">
@@ -81,7 +82,7 @@ const CartSlide = ({ cartState }) => {
             </div>
             <div className="cart-item">
               <div className="cart-item-left">
-                <img
+                <Image
                   src="https://u6z5w6k6.stackpathcdn.com/IMG/prd/1260_00/4547315968619_03_1260.jpg"
                   alt="product img"
                   className="cart-item-img"

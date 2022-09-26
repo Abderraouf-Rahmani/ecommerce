@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { urlFor } from "../../lib/client";
 import styles from "./Carousel.module.css";
@@ -86,7 +87,7 @@ const Carousel = ({ carouselProducts }) => {
           {carouselProducts.map((product) => (
             <Link key={product._id} href={product.slug.current}>
               <div ref={card} className={styles.carouselCard}>
-                <img
+                <Image
                   src={urlFor(product.image[0])}
                   alt={product.name}
                   className={styles.cardImg}
