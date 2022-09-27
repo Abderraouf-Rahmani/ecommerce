@@ -1,25 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { urlFor } from "../../lib/client";
+import { useStateContext } from "../../context/StateContext";
+import { toast } from "react-hot-toast";
 
 const Product = ({ product }) => {
+  const { decQty, incQty, qty, onAdd } = useStateContext();
   const { name, ref, desc, image, price, characteristics } = product;
   const specsGridColumnsNum = useRef();
 
-  const [qnt, setQnt] = useState(1);
   const [imgIndex, setImgIndex] = useState(0);
   useEffect(() => {
     specsGridColumnsNum.current.style.gridTemplateColumns = `repeat(${characteristics.length}, 1fr)`;
     // const miniViewImgs = window.document.querySelectorAll(".img-container");
   }, [characteristics]);
 
-  const UpdateCart = (change) => {
-    if (change === "+") {
-      setQnt(qnt + 1);
-    } else if (change === "-") {
-      if (qnt <= 1) return;
-      setQnt(qnt - 1);
-    }
-  };
   return (
     <>
       <section className="product-details">
@@ -63,23 +57,21 @@ const Product = ({ product }) => {
                 <div className="item-desc">{desc}</div>
                 <div className="item-price">{price}$</div>
                 <div className="quantity">
-                  <div
-                    onClick={() => {
-                      UpdateCart("-");
-                    }}
-                    className="minus qnt-changer"
-                  >
+                  Quantity:
+                  <div onClick={decQty} className="minus qnt-changer">
                     <span>&#8722;</span>
                   </div>
-                  <div className="add-to-cart-btn">ADD TO CART ({qnt})</div>
-                  <div
-                    onClick={() => {
-                      UpdateCart("+");
-                    }}
-                    className="plus qnt-changer"
-                  >
+                  <div className="add-to-cart-btn">{qty}</div>
+                  <div onClick={incQty} className="plus qnt-changer">
                     <span>&#43;</span>
                   </div>
+                </div>
+                <div className="add-to-cart-btn">ADD TO CART</div>
+                <div
+                  className="add-to-cart-btn"
+                  onClick={() => onAdd(product, qty)}
+                >
+                  BUY NOW
                 </div>
               </div>
             </div>

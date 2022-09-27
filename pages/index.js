@@ -7,7 +7,7 @@ import LowerFeaturedBanner from "../components/lowerFeaturedBanner/LowerFeatured
 import { client } from "../lib/client";
 import CategoryProducts from "../components/category/CategoryProducts";
 
-const Home = ({ results, heroGrid, trending, topBanner, bottomBanner }) => {
+const Home = ({ results, heroGrid, topBanner, bottomBanner }) => {
   return (
     <>
       <HeroBanner hero={heroGrid[0]} />
@@ -29,30 +29,25 @@ const Home = ({ results, heroGrid, trending, topBanner, bottomBanner }) => {
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"][0..6]';
-  // const url = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
   const results = await client.fetch(query);
 
   const HeroQuery = '*[_type == "hero"]';
-  // const HeroUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${HeroQuery}`;
   const heroGrid = await client.fetch(HeroQuery);
 
   const topBannerQuery = '*[_type == "topBanner"]';
-  // const topBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${topBannerQuery}`;
   const topBanner = await client.fetch(topBannerQuery);
 
   const bottomBannerQuery = '*[_type == "BottomBanner"]';
-  // const bottomBannerUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${bottomBannerQuery}`;
   const bottomBanner = await client.fetch(bottomBannerQuery);
 
-  const trendingQuery = '*[_type == "product"]';
-  const trendingUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${trendingQuery}`;
-  const trending = await fetch(trendingUrl).then((res) => res.json());
+  // const trendingQuery = '*[_type == "product"]';
+  // const trendingUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${trendingQuery}`;
+  // const trending = await fetch(trendingUrl).then((res) => res.json());
 
   return {
     props: {
       results,
       heroGrid,
-      trending,
       topBanner,
       bottomBanner,
     },
