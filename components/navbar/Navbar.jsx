@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CartSlide from "../cart/CartSlide";
+import { useStateContext } from "../../context/StateContext";
 
 const Navbar = () => {
+  const { totalQuantities, showCart, toggleCart } = useStateContext();
+
   const menuContainer = useRef();
   // const cartContainer = useRef();
   const [isCartVisible, setIsCartVisible] = useState(true);
@@ -19,7 +22,11 @@ const Navbar = () => {
 
   return (
     <>
-      {/* <CartSlide cartState={isCartVisible} /> */}
+      <div className="notify-container">
+        <div className="notify-text"></div>
+        <div className="notify-loader"></div>
+      </div>
+      {showCart && <CartSlide />}
 
       <nav id="navbar" className="navbar">
         <div className="container">
@@ -43,7 +50,7 @@ const Navbar = () => {
 
               <span
                 onClick={() => {
-                  setIsCartVisible(!isCartVisible);
+                  toggleCart();
                 }}
                 className="cart-container"
               >
@@ -58,7 +65,7 @@ const Navbar = () => {
                     <path d="M4 16V4H2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5a1 1 0 0 1-1-1zm2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
                   </svg>
                 </span>
-                <span className="cart-products">2</span>
+                <span className="cart-products">{totalQuantities}</span>
               </span>
               <div
                 className="burger-menu"

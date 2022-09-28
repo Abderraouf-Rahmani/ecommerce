@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
+// import { toast } from "react-hot-toast";
+import notify from "../util/util";
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [totalQuantities, setTotalQuantities] = useState();
+  const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
   const incQty = () => {
@@ -19,6 +20,10 @@ export const StateContext = ({ children }) => {
 
       return prevQty - 1;
     });
+  };
+
+  const toggleCart = () => {
+    setShowCart(!showCart);
   };
 
   const onAdd = (product, quantity) => {
@@ -46,8 +51,26 @@ export const StateContext = ({ children }) => {
 
       setCartItems([...cartItems, { ...product }]);
     }
+    // toast(`${qty} ${product.name} added to the cart.`);
+    notify(`${qty} ${product.name} added to the cart.`);
+  };
 
-    toast.success(`${qty} ${product.name} added to the cart.`);
+  const updateCartItemQty = (index, qtyFactor, cartItem) => {
+    let cartItemsArrToBeUpdated = cartItems;
+    if (qtyFactor === "inc") {
+      cartItemsArrToBeUpdated[index].quantity = cartItem.quantity + 1;
+    } else if (qtyFactor === "dec") {
+      if (cartItem.quantity <= 1) return;
+      cartItemsArrToBeUpdated[index].quantity = cartItem.quantity - 1;
+    }
+    setCartItems([...cartItemsArrToBeUpdated]);
+  };
+
+  const handleCartItemRemove = (index, cartItem) => {
+    let cartItemsArrToBeUpdated = cartItems;
+    setTotalQuantities((prevTotalQty) => prevTotalQty - cartItem.quantity);
+    cartItemsArrToBeUpdated.splice(index, 1);
+    setCartItems([...cartItemsArrToBeUpdated]);
   };
 
   return (
@@ -61,6 +84,10 @@ export const StateContext = ({ children }) => {
         incQty,
         decQty,
         onAdd,
+        toggleCart,
+        updateCartItemQty,
+        setCartItems,
+        handleCartItemRemove,
       }}
     >
       {children}

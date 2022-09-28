@@ -675,7 +675,7 @@ a {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.328);
-  display: none !important;
+  display: flex !important;
 }
 
 @keyframes cart-bg {
@@ -697,7 +697,7 @@ a {
   height: calc(120px + 100vh);
   background-color: #fff;
   padding: 20px;
-  display: none;
+  /* display: flex; */
 }
 
 @keyframes slide-cart-container {
@@ -1010,6 +1010,80 @@ select.filter-select:hover {
   );
   background-size: 400% 100%;
   animation: loading 5s ease-in-out infinite;
+}
+
+.notify-container {
+  position: absolute;
+  transform: translateX(-220%);
+  min-width: 20px;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(72, 72, 72);
+  display: none;
+  left: 50vw;
+  transform-origin: center;
+  animation-name: notify;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes notify {
+  0% {
+    top: -70px;
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+
+  14%,
+  86% {
+    top: 20px;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    top: -70px;
+    opacity: 0.1;
+    transform: scale(0.3);
+  }
+}
+
+.notify-text {
+  position: relative;
+  color: #fff;
+  z-index: 999;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 15px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #303030;
+  border: 1px solid rgb(134, 134, 134);
+}
+
+.notify-loader {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background-color: #000000;
+  justify-self: flex-start !important;
+  align-self: flex-start;
+  transform: translateX(0px);
+  animation-name: notify-loader;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes notify-loader {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes loading {

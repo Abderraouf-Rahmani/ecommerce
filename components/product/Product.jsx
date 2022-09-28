@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
-import { toast } from "react-hot-toast";
 
 const Product = ({ product }) => {
   const { decQty, incQty, qty, onAdd } = useStateContext();
