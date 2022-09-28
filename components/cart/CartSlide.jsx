@@ -42,13 +42,13 @@ const CartSlide = () => {
             <>
               <div className="cart-header">
                 <div className="slide-cart-title">
-                  <h2>
+                  <h3>
                     Your Shopping Cart (
                     {cartItems.length === 1
                       ? `one item`
                       : `${cartItems.length} items`}
                     )
-                  </h2>
+                  </h3>
                 </div>
                 <div
                   className="cart-close"
