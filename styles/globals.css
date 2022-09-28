@@ -694,10 +694,19 @@ a {
   top: 0px;
   max-width: 500px;
   min-width: 450px;
-  height: calc(120px + 100vh);
+  height: 100%;
   background-color: #fff;
   padding: 20px;
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+@media only screen and (max-width: 530px) {
+  .slide-cart-container {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 @keyframes slide-cart-container {
@@ -712,22 +721,80 @@ a {
 .cart-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .cart-body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow-y: scroll;
+  min-height: calc(100vh - 129px - 70px);
+  padding: 5px;
+}
+
+.cart-footer {
+  border-top: 2px dashed black;
+  margin-top: 17px;
+  padding-top: 10px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: flex-end !important;
+}
+
+.cart-empty {
+  align-self: center;
+  font-size: 20px;
+  font-weight: 600;
+  justify-self: center;
+  margin-top: 40%;
+}
+
+.checkout {
+  border: 2px solid black;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #dfdfdf;
+  cursor: pointer;
+}
+
+.checkout:hover {
+  background-color: #000;
+  color: white;
+}
+
+.checkout:focus {
+  outline: 2px solid grey;
+  outline-offset: 4px;
+}
+
+.subtotal {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.subtotal-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .cart-item {
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(242, 242, 242);
   display: flex;
   /* justify-content: space-between; */
   /* gap: 13px; */
-  height: 130px;
+  min-height: 140px;
   width: 100%;
+  border: 2px solid black;
+  border-radius: 9px;
+  overflow: hidden;
 }
 
 .cart-item-left {
@@ -748,14 +815,19 @@ a {
   justify-content: space-between;
 }
 
+.cart-item-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
 .cart-item-remove {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 27px;
-  height: 27px;
-  background-color: #000000;
+  align-self: flex-end;
+  /* margin: 0px 10px 10px 0px; */
   cursor: pointer;
+  padding: 10px;
+  font-size: 22px;
 }
 
 .cart-item-mid {

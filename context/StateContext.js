@@ -32,23 +32,24 @@ export const StateContext = ({ children }) => {
     );
 
     setTotalPrice(
-      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+      (prevTotalPrice) => prevTotalPrice + Number(product.price) * quantity
     );
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if (checkProductInCart) {
-      const updatedCartItems = cartItems.map((cartProduct) => {
+      let updatedCartItems = cartItems.map((cartProduct) => {
         if (cartProduct._id === product._id)
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
+            total: totalPrice,
           };
       });
 
       setCartItems(updatedCartItems);
     } else {
       product.quantity = quantity;
-
+      product.total = totalPrice;
       setCartItems([...cartItems, { ...product }]);
     }
     // toast(`${qty} ${product.name} added to the cart.`);
@@ -59,10 +60,17 @@ export const StateContext = ({ children }) => {
     let cartItemsArrToBeUpdated = cartItems;
     if (qtyFactor === "inc") {
       cartItemsArrToBeUpdated[index].quantity = cartItem.quantity + 1;
+      // setTotalPrice((prevTotalPrice) => prevTotalPrice + cartItem.price);
+      setTotalQuantities((prevTotalQty) => prevTotalQty + 1);
     } else if (qtyFactor === "dec") {
       if (cartItem.quantity <= 1) return;
       cartItemsArrToBeUpdated[index].quantity = cartItem.quantity - 1;
+      // setTotalPrice((prevTotalPrice) => prevTotalPrice - cartItem.price);
+      setTotalQuantities((prevTotalQty) => prevTotalQty - 1);
     }
+    cartItemsArrToBeUpdated[index].totalPrice =
+      cartItem.quantity * cartItem.price;
+
     setCartItems([...cartItemsArrToBeUpdated]);
   };
 

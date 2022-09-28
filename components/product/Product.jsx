@@ -65,13 +65,13 @@ const Product = ({ product }) => {
                     <span>&#43;</span>
                   </div>
                 </div>
-                <div className="add-to-cart-btn">ADD TO CART</div>
                 <div
                   className="add-to-cart-btn"
                   onClick={() => onAdd(product, qty)}
                 >
-                  BUY NOW
+                  ADD TO CART
                 </div>
+                <div className="add-to-cart-btn">BUY NOW</div>
               </div>
             </div>
           </div>
