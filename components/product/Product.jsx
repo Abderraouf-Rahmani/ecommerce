@@ -54,24 +54,30 @@ const Product = ({ product }) => {
               </div>
               <div className="product-right-details">
                 <div className="item-desc">{desc}</div>
-                <div className="item-price">{price}$</div>
-                <div className="quantity">
-                  Quantity:
-                  <div onClick={decQty} className="minus qnt-changer">
-                    <span>&#8722;</span>
+                <div className="item-mid">
+                  <span className="item-mid-title">Quantity:</span>
+                  <div className="quantity">
+                    <button onClick={decQty} className="minus qnt-changer">
+                      <span>&#8722;</span>
+                    </button>
+                    <div className="item-qty">{qty}</div>
+                    <button onClick={incQty} className="plus qnt-changer">
+                      <span>&#43;</span>
+                    </button>
                   </div>
-                  <div className="add-to-cart-btn">{qty}</div>
-                  <div onClick={incQty} className="plus qnt-changer">
-                    <span>&#43;</span>
+                  <div className="item-price">
+                    {Number(price * qty).toFixed(2)}$
                   </div>
                 </div>
-                <div
-                  className="add-to-cart-btn"
-                  onClick={() => onAdd(product, qty)}
-                >
-                  ADD TO CART
+                <div className="item-footer">
+                  <button
+                    className="add-to-cart-btn"
+                    onClick={() => onAdd(product, qty)}
+                  >
+                    ADD TO CART
+                  </button>
+                  <button className="buy-now-btn">BUY NOW</button>
                 </div>
-                <div className="add-to-cart-btn">BUY NOW</div>
               </div>
             </div>
           </div>

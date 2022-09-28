@@ -4,7 +4,7 @@ export default function notify(text) {
   let animationDuration = Number(
     getComputedStyle(notifyContainer).animationDuration.replace("s", "")
   );
-  console.log(animationDuration);
+  // console.log(animationDuration);
   notifyText.innerHTML = text;
   notifyContainer.style.display = "flex";
   setTimeout(() => {

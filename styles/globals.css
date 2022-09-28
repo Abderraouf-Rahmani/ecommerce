@@ -21,6 +21,20 @@ a {
   box-sizing: border-box;
 }
 
+.layout-section {
+  margin-top: 130px;
+}
+
+.header {
+  position: fixed;
+  top: 0px;
+  background-color: white;
+  width: 100%;
+  height: fit-content;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .container {
   max-width: 1200px;
   margin: 0px auto;
@@ -32,11 +46,33 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: height 0.2s ease-in-out;
 }
 
 .navbar-logo {
   font-weight: 700;
-  font-size: 19px;
+  font-size: 22px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-sun {
+  min-width: 55px;
+  min-height: 55px;
+  border-radius: 50px;
+  background-color: #b6002c;
+  display: inline-block;
+  margin: 0px -25px;
+  position: relative;
+  z-index: 95;
+}
+
+.logo-wording {
+  position: relative;
+  z-index: 998;
 }
 
 .nav-items {
@@ -518,6 +554,12 @@ a {
   position: relative;
   padding-top: 5%;
 }
+
+.item-desc {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
 .devider {
   position: absolute;
   bottom: 0px;
@@ -532,7 +574,7 @@ a {
   flex-direction: column;
   /* border: 1px solid black; */
   gap: 40px;
-  margin-top: 23%;
+  /* margin-top: 23%; */
 }
 
 .item-ids {
@@ -554,38 +596,78 @@ a {
   color: rgb(175, 175, 175);
 }
 
-.item-price {
-  font-weight: 600;
+.item-mid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.item-mid-title {
   font-size: 22px;
+  font-weight: 600;
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 26px;
+  font-family: "Fira Code", monospace;
 }
 
 .quantity {
+  border: 1px solid rgb(44, 44, 44);
   display: flex;
   width: fit-content;
   height: fit-content;
 }
 
+.item-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  font-weight: 700;
+  border-left: 1px solid rgb(44, 44, 44);
+  border-right: 1px solid rgb(44, 44, 44);
+}
+
+.quantity > span {
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
 .qnt-changer {
   background-color: #fff;
-  width: 40px;
-  width: 40px;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 26px;
   cursor: pointer;
   transition: 0.1s ease-in-out;
+  border: none;
+}
+
+.qnt-changer:focus {
+  outline: 2px solid grey;
+  outline-offset: 4px;
 }
 
 .qnt-changer:hover {
   background-color: rgb(218, 218, 218);
 }
 
-.add-to-cart-btn {
-  background-color: rgb(55, 55, 55);
-  color: white;
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -593,7 +675,31 @@ a {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  width: fit-content;
+  height: 50px;
+  width: 48%;
+  transition: 0.1s ease-in-out;
+}
+
+.add-to-cart-btn {
+  background-color: transparent;
+  border: 2px solid black;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #000;
+  color: white;
+}
+
+.buy-now-btn {
+  background-color: #b6002c;
+  color: white;
+  border: 2px solid #b6002c;
+}
+
+.buy-now-btn:hover {
+  background-color: transparent;
+  color: #b6002c;
+  /* border: 2px solid #b6002c; */
 }
 
 .product-specs {
@@ -737,6 +843,7 @@ a {
 }
 
 .cart-footer {
+  font-family: "Fira Code", monospace;
   border-top: 2px dashed black;
   margin-top: 17px;
   padding-top: 10px;
@@ -748,8 +855,9 @@ a {
 }
 
 .cart-footer-title {
-  font-weight: 700;
+  font-weight: 800;
   color: #303030;
+  font-size: 22px;
 }
 
 .cart-empty {
@@ -798,8 +906,8 @@ a {
   /* gap: 13px; */
   min-height: 140px;
   width: 100%;
-  border: 2px solid black;
-  border-radius: 9px;
+  border: 1px solid rgb(113, 113, 113);
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -847,6 +955,7 @@ a {
 
 .cart-item-title {
   margin: 0;
+  padding-right: 20px;
 }
 
 .gnt-changer-container {
@@ -1090,68 +1199,64 @@ select.filter-select:hover {
   animation: loading 5s ease-in-out infinite;
 }
 
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .notify-container {
-  position: absolute;
-  transform: translateX(-220%);
-  min-width: 20px;
+  background-color: rgb(54, 54, 54);
+  transform: translateX(-50%);
+  transform: scale(1);
+  opacity: 1;
   width: fit-content;
-  height: fit-content;
-  background-color: rgb(72, 72, 72);
+  color: white;
+  position: fixed;
+  left: 50%;
   display: none;
-  left: 50vw;
-  transform-origin: center;
-  animation-name: notify;
-  animation-timing-function: ease-in-out;
+  align-items: center;
+  height: 60px;
+  animation-name: notification;
   animation-duration: 2.8s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-@keyframes notify {
-  0% {
-    top: -70px;
-    opacity: 0.8;
-    transform: scale(0.5);
+@keyframes notification {
+  0%,
+  100% {
+    top: -60px;
+    opacity: 0.1;
+    transform: scale(0.2);
+    transform: translateX(-50%);
   }
-
-  14%,
-  86% {
+  14.28%,
+  85.72% {
     top: 20px;
     opacity: 1;
     transform: scale(1);
-  }
-
-  100% {
-    top: -70px;
-    opacity: 0.1;
-    transform: scale(0.3);
+    transform: translateX(-50%);
   }
 }
 
 .notify-text {
   position: relative;
-  color: #fff;
   z-index: 999;
-  font-size: 16px;
-  font-weight: 700;
-  margin: 15px;
-  padding: 5px;
-  border-radius: 8px;
-  background-color: #303030;
-  border: 1px solid rgb(134, 134, 134);
+  margin: 0px 30px;
 }
 
 .notify-loader {
+  background-color: #000;
   position: absolute;
   height: 100%;
-  width: 0%;
-  background-color: #000000;
-  justify-self: flex-start !important;
-  align-self: flex-start;
-  transform: translateX(0px);
   animation-name: notify-loader;
   animation-timing-function: ease-in-out;
-  animation-duration: 2s;
   animation-delay: 0.4s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
@@ -1161,14 +1266,5 @@ select.filter-select:hover {
   }
   to {
     width: 100%;
-  }
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
   }
 }

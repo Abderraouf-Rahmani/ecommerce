@@ -7,10 +7,19 @@ const Navbar = () => {
   const { totalQuantities, showCart, toggleCart } = useStateContext();
 
   const menuContainer = useRef();
+  const navbarContainer = useRef();
   // const cartContainer = useRef();
   const [isCartVisible, setIsCartVisible] = useState(true);
 
-  useEffect(() => {}, [isCartVisible]);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (scrollY > 20) {
+        navbarContainer.current.style.height = "70px";
+      } else {
+        navbarContainer.current.style.height = "120px";
+      }
+    });
+  }, []);
 
   const handleResponsiveMenu = (ResMenuState) => {
     if (ResMenuState) {
@@ -30,10 +39,16 @@ const Navbar = () => {
 
       <nav id="navbar" className="navbar">
         <div className="container">
-          <div className="navbar-container">
+          <div ref={navbarContainer} className="navbar-container">
             <div className="navbar-logo">
               {" "}
-              <Link href="/">単純</Link>
+              <Link href="/">
+                <div className="logo-container">
+                  <span className="logo-wording">RAOUF</span>
+                  <div className="logo-sun"></div>{" "}
+                  <span className="logo-wording">単純</span>
+                </div>
+              </Link>
             </div>
             <div className="nav-items">
               <div className="nav-links nav-items">

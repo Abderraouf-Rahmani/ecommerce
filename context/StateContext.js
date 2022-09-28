@@ -42,14 +42,14 @@ export const StateContext = ({ children }) => {
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
-            total: totalPrice,
+            // total: totalPrice,
           };
       });
 
       setCartItems(updatedCartItems);
     } else {
       product.quantity = quantity;
-      product.total = totalPrice;
+      // product.total = totalPrice;
       setCartItems([...cartItems, { ...product }]);
     }
     // toast(`${qty} ${product.name} added to the cart.`);
@@ -60,12 +60,12 @@ export const StateContext = ({ children }) => {
     let cartItemsArrToBeUpdated = cartItems;
     if (qtyFactor === "inc") {
       cartItemsArrToBeUpdated[index].quantity = cartItem.quantity + 1;
-      // setTotalPrice((prevTotalPrice) => prevTotalPrice + cartItem.price);
+      setTotalPrice((prevTotalPrice) => prevTotalPrice + cartItem.price);
       setTotalQuantities((prevTotalQty) => prevTotalQty + 1);
     } else if (qtyFactor === "dec") {
       if (cartItem.quantity <= 1) return;
       cartItemsArrToBeUpdated[index].quantity = cartItem.quantity - 1;
-      // setTotalPrice((prevTotalPrice) => prevTotalPrice - cartItem.price);
+      setTotalPrice((prevTotalPrice) => prevTotalPrice - cartItem.price);
       setTotalQuantities((prevTotalQty) => prevTotalQty - 1);
     }
     cartItemsArrToBeUpdated[index].totalPrice =
@@ -77,6 +77,10 @@ export const StateContext = ({ children }) => {
   const handleCartItemRemove = (index, cartItem) => {
     let cartItemsArrToBeUpdated = cartItems;
     setTotalQuantities((prevTotalQty) => prevTotalQty - cartItem.quantity);
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice - cartItem.price * cartItem.quantity
+    );
+
     cartItemsArrToBeUpdated.splice(index, 1);
     setCartItems([...cartItemsArrToBeUpdated]);
   };

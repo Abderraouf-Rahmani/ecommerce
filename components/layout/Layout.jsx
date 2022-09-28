@@ -9,10 +9,10 @@ const Layout = ({ children }) => {
       <Head>
         <title>Raouf Store</title>
       </Head>
-      <header>
+      <header className="header">
         <Navbar />
       </header>
-      <section>{children}</section>
+      <section className="layout-section">{children}</section>
       <footer>
         <Footer />
       </footer>

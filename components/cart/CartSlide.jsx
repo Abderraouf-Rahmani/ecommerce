@@ -126,9 +126,9 @@ const CartSlide = () => {
               <div className="cart-footer">
                 <div className="cart-footer-title">Subtotal</div>
                 <div className="subtotal-container">
-                  <span className="subtotal">178$</span>
+                  <span className="subtotal">{totalPrice}$</span>
                   <Link href="#navbar">
-                    <button className="checkout">Go to Checkout</button>
+                    <button className="add-to-cart-btn">Go to Checkout</button>
                   </Link>
                 </div>
               </div>
