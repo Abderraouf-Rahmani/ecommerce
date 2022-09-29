@@ -4,6 +4,8 @@ import EmptyCart from "../../imgs/empty-cart.png";
 import { useStateContext } from "../../context/StateContext";
 import { urlFor } from "../../lib/client";
 import Link from "next/link";
+import getStripe from "../../lib/getStripe";
+import notify from "../../util/util";
 const CartSlide = () => {
   const {
     toggleCart,
@@ -27,6 +29,26 @@ const CartSlide = () => {
       }
     });
   }, []);
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    // toast.loading("Redirecting...");
+    // console.log(data);
+    stripe.redirectToCheckout({ sessionId: await data.id });
+  };
 
   return (
     <>
@@ -128,7 +150,12 @@ const CartSlide = () => {
                 <div className="subtotal-container">
                   <span className="subtotal">{totalPrice}$</span>
                   <Link href="#navbar">
-                    <button className="add-to-cart-btn">Go to Checkout</button>
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={handleCheckout}
+                    >
+                      Go to Checkout
+                    </button>
                   </Link>
                 </div>
               </div>
