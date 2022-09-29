@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ActionButton from "../components/buttons/ActionButton";
 import notify from "../util/util";
-const success = () => {
+const Success = () => {
   useEffect(() => {
     notify("Your order is confirmed 👍");
   }, []);
@@ -13,4 +13,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;

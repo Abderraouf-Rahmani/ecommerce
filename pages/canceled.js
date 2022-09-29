@@ -5,7 +5,7 @@ const canceled = () => {
   return (
     <>
       <div className="container cancel-container">
-        <h2>🤔It looks like you've canceled your order</h2>
+        <h2>🤔It looks like you&apos;ve canceled your order</h2>
         <ActionButton text="Keep Browsing" link="/category/all" />
       </div>
     </>
