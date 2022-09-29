@@ -25,7 +25,7 @@ const CategoryProduct = ({ property, productDetails }) => {
                 <div className="wide-title">{productDetails.wideCardTitle}</div>
                 <ActionButton
                   text="VIEW MORE"
-                  link={`${productDetails.slug}`}
+                  link={`/product/${productDetails.slug.current}`}
                 />
               </div>
             </>
