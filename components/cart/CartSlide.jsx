@@ -6,6 +6,7 @@ import { urlFor } from "../../lib/client";
 import Link from "next/link";
 import getStripe from "../../lib/getStripe";
 import notify from "../../util/util";
+import Product from "../product/Product";
 const CartSlide = () => {
   const {
     toggleCart,
@@ -45,7 +46,7 @@ const CartSlide = () => {
 
     const data = await response.json();
 
-    // toast.loading("Redirecting...");
+    notify("Redirecting...", "promise");
     // console.log(data);
     stripe.redirectToCheckout({ sessionId: await data.id });
   };

@@ -53,7 +53,12 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...product }]);
     }
     // toast(`${qty} ${product.name} added to the cart.`);
-    notify(`${qty} ${product.name} added to the cart.`);
+    notify(
+      qty > 1
+        ? `${qty} Products added to the cart.`
+        : `One product added to your cart.`,
+      "prohmise"
+    );
   };
 
   const updateCartItemQty = (index, qtyFactor, cartItem) => {

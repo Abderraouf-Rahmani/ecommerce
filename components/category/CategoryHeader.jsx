@@ -12,9 +12,6 @@ const CategoryHeader = ({ categoryName, categories }) => {
     });
   };
 
-  const handlePriceSort = (priceSorting) => {
-    console.log(priceSorting);
-  };
   return (
     <div className="container">
       <div className="category-header">

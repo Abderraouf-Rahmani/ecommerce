@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
+import getStripe from "../../lib/getStripe";
+import notify from "../../util/util";
 
 const Product = ({ product }) => {
-  const { decQty, incQty, qty, onAdd } = useStateContext();
+  const { decQty, incQty, qty, onAdd, toggleCart } = useStateContext();
   const { name, ref, desc, image, price, characteristics } = product;
   const specsGridColumnsNum = useRef();
 
@@ -12,6 +14,27 @@ const Product = ({ product }) => {
     specsGridColumnsNum.current.style.gridTemplateColumns = `repeat(${characteristics.length}, 1fr)`;
     // const miniViewImgs = window.document.querySelectorAll(".img-container");
   }, [characteristics]);
+
+  const handleBuyNow = async (product) => {
+    product.quantity = qty;
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([product]),
+    });
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    notify("Redirecting...", "promise");
+    console.log(data);
+    stripe.redirectToCheckout({ sessionId: await data.id });
+  };
 
   return (
     <>
@@ -76,7 +99,14 @@ const Product = ({ product }) => {
                   >
                     ADD TO CART
                   </button>
-                  <button className="buy-now-btn">BUY NOW</button>
+                  <button
+                    className="buy-now-btn"
+                    onClick={() => {
+                      handleBuyNow(product);
+                    }}
+                  >
+                    BUY NOW
+                  </button>
                 </div>
               </div>
             </div>

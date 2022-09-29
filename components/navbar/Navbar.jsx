@@ -52,14 +52,14 @@ const Navbar = () => {
             </div>
             <div className="nav-items">
               <div className="nav-links nav-items">
-                <Link href="category/all">
+                <Link href="/category/all">
                   <span className="nav-item">CATEGORIES</span>
                 </Link>
-                <Link href="#navbar">
-                  <span className="nav-item">ABOUT</span>
+                <Link href="/category/lamps">
+                  <span className="nav-item">LAMPS</span>
                 </Link>
-                <Link href="#navbar">
-                  <span className="nav-item">STORE LOCATOR</span>
+                <Link href="/category/furniture">
+                  <span className="nav-item">FURNITURE</span>
                 </Link>
               </div>
 
@@ -80,7 +80,9 @@ const Navbar = () => {
                     <path d="M4 16V4H2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5a1 1 0 0 1-1-1zm2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
                   </svg>
                 </span>
-                <span className="cart-products">{totalQuantities}</span>
+                {totalQuantities > 0 && (
+                  <span className="cart-products">{totalQuantities}</span>
+                )}
               </span>
               <div
                 className="burger-menu"
@@ -116,14 +118,14 @@ const Navbar = () => {
                   </svg>
                 </div>
                 <div className="menu">
-                  <Link href="#navbar">
+                  <Link href="/category/all">
                     <span className="nav-item">CATEGORIES</span>
                   </Link>
-                  <Link href="#navbar">
-                    <span className="nav-item">ABOUT</span>
+                  <Link href="/category/lamps">
+                    <span className="nav-item">LAMPS</span>
                   </Link>
-                  <Link href="#navbar">
-                    <span className="nav-item">STORE LOCATOR</span>
+                  <Link href="/category/furniture">
+                    <span className="nav-item">FURNITURE</span>
                   </Link>
                 </div>
               </div>

@@ -17,7 +17,7 @@ const LowerFeaturedBanner = ({ bannerBottom }) => {
           <div className="featured-left">
             <h2 className="banner-title">{bannerBottom.title}</h2>
             <p className="featured-desc">{bannerBottom.desc}</p>
-            <ActionButton text="SOPE NOW" link="#banner" />
+            <ActionButton text="SOPE NOW" link="/category/all" />
           </div>
         </div>
       </div>

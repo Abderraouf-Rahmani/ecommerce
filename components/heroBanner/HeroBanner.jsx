@@ -7,7 +7,7 @@ const HeroBanner = ({ hero }) => {
       <div className="home-header">
         <div className="container">
           <div className="home-header-container">
-            <Link href="#navbar">
+            <Link href="/category/furniture">
               <div className="featured header-one">
                 <div className="header-img-container">
                   <h2 className="featured-title">{hero?.bigSqr?.title}</h2>
@@ -19,7 +19,7 @@ const HeroBanner = ({ hero }) => {
                 />
               </div>
             </Link>
-            <Link href="#navbar">
+            <Link href="/category/skin care">
               <div className="featured header-two">
                 <div className="header-img-container">
                   <h2 className="featured-title">{hero.tallRect.title}</h2>
@@ -31,7 +31,7 @@ const HeroBanner = ({ hero }) => {
                 />
               </div>
             </Link>
-            <Link href="#navbar">
+            <Link href="/category/kitchen">
               <div className="featured header-four">
                 <div className="header-img-container">
                   <h2 className="featured-title">{hero.topLittleSqr.title}</h2>
@@ -43,7 +43,7 @@ const HeroBanner = ({ hero }) => {
                 />
               </div>
             </Link>
-            <Link href="#navbar">
+            <Link href="/category/electronics">
               <div className="featured header-four-low">
                 <div className="header-img-container">
                   <h2 className="featured-title">

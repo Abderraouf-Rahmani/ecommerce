@@ -52,11 +52,14 @@ a {
 .navbar-logo {
   font-weight: 700;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 900;
 }
 
 .logo-sun {
@@ -96,10 +99,14 @@ a {
   position: relative;
   display: flex;
   gap: 5px;
+  cursor: pointer;
 }
 
 .cart-products {
-  background-color: rgb(67, 67, 67);
+  position: absolute;
+  top: -17px;
+  left: 5px;
+  background-color: #b6002c;
   color: white;
   width: 20px;
   height: 20px;
@@ -601,15 +608,17 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 10px;
 }
+
 .item-mid-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .item-price {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 24px;
   font-family: "Fira Code", monospace;
 }
 
@@ -630,6 +639,25 @@ a {
   font-weight: 700;
   border-left: 1px solid rgb(44, 44, 44);
   border-right: 1px solid rgb(44, 44, 44);
+}
+
+@media only screen and (max-width: 870px) {
+  .item-mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .quantity {
+    order: 2;
+  }
+  .item-price {
+    order: 1;
+  }
+  .item-mid-title {
+    display: none;
+  }
 }
 
 .quantity > span {
@@ -775,7 +803,7 @@ a {
   animation-timing-function: ease-out;
   animation-duration: 0.2s;
   position: fixed;
-  z-index: 999;
+  z-index: 997;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -805,7 +833,7 @@ a {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  z-index: 999;
+  z-index: 998;
 }
 
 @media only screen and (max-width: 630px) {
@@ -1211,34 +1239,30 @@ select.filter-select:hover {
 .notify-container {
   background-color: rgb(54, 54, 54);
   transform: translateX(-50%);
-  transform: scale(1);
-  opacity: 1;
   width: fit-content;
   color: white;
   position: fixed;
   left: 50%;
+  padding: 10px 0px;
   display: none;
   align-items: center;
-  height: 60px;
+  height: fit-content;
   animation-name: notification;
   animation-duration: 2.8s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+  z-index: 999;
 }
 
 @keyframes notification {
   0%,
   100% {
     top: -60px;
-    opacity: 0.1;
-    transform: scale(0.2);
     transform: translateX(-50%);
   }
   14.28%,
   85.72% {
-    top: 20px;
-    opacity: 1;
-    transform: scale(1);
+    top: 80px;
     transform: translateX(-50%);
   }
 }
@@ -1246,7 +1270,8 @@ select.filter-select:hover {
 .notify-text {
   position: relative;
   z-index: 999;
-  margin: 0px 30px;
+  margin: 10px 20px;
+  order: 2;
 }
 
 .notify-loader {
@@ -1260,6 +1285,25 @@ select.filter-select:hover {
   animation-fill-mode: forwards;
 }
 
+.loader-img {
+  animation-name: img-loader;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  transform: rotate(0deg);
+  animation-timing-function: linear;
+  order: 1;
+  margin-left: 20px;
+}
+
+@keyframes img-loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes notify-loader {
   from {
     width: 0%;
@@ -1267,4 +1311,12 @@ select.filter-select:hover {
   to {
     width: 100%;
   }
+}
+
+.cancel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15% 0px;
+  gap: 30px;
 }
