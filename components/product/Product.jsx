@@ -16,6 +16,8 @@ const Product = ({ product }) => {
   }, [characteristics]);
 
   const handleBuyNow = async (product) => {
+    notify("Redirecting...", "promise");
+
     product.quantity = qty;
     const stripe = await getStripe();
 
@@ -31,7 +33,6 @@ const Product = ({ product }) => {
 
     const data = await response.json();
 
-    notify("Redirecting...", "promise");
     console.log(data);
     stripe.redirectToCheckout({ sessionId: await data.id });
   };

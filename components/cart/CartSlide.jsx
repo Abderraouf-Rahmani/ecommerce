@@ -32,6 +32,7 @@ const CartSlide = () => {
   }, []);
 
   const handleCheckout = async () => {
+    notify("Redirecting...", "promise");
     const stripe = await getStripe();
 
     const response = await fetch("/api/stripe", {
@@ -46,7 +47,7 @@ const CartSlide = () => {
 
     const data = await response.json();
 
-    notify("Redirecting...", "promise");
+    // notify("Redirecting...", "promise");
     // console.log(data);
     stripe.redirectToCheckout({ sessionId: await data.id });
   };
