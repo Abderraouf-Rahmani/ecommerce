@@ -1313,6 +1313,26 @@ select.filter-select:hover {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .notify-container {
+    top: 10px;
+    min-width: calc(100% - 20px);
+    border-radius: 3px;
+  }
+  @keyframes notification {
+    0%,
+    100% {
+      top: -60px;
+      transform: translateX(-50%);
+    }
+    14.28%,
+    85.72% {
+      top: 10px;
+      transform: translateX(-50%);
+    }
+  }
+}
+
 .cancel-container {
   display: flex;
   flex-direction: column;
