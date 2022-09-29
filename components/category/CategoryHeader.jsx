@@ -26,7 +26,7 @@ const CategoryHeader = ({ categoryName, categories }) => {
         </div>
         <div className="category-header-right">
           <select
-            defaultValue={categoryName.toLowerCase()}
+            defaultValue={categoryChosen || categoryName.toLowerCase()}
             onChange={(e) => {
               handleCategoryChange(e.target.value);
             }}
