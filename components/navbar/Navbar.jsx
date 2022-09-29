@@ -9,7 +9,6 @@ const Navbar = () => {
   const menuContainer = useRef();
   const navbarContainer = useRef();
   // const cartContainer = useRef();
-  const [isCartVisible, setIsCartVisible] = useState(true);
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -44,9 +43,11 @@ const Navbar = () => {
               {" "}
               <Link href="/">
                 <div className="logo-container">
-                  <span className="logo-wording">RAOUF</span>
-                  <div className="logo-sun"></div>{" "}
-                  <span className="logo-wording">単純</span>
+                  <img
+                    className="logo-img"
+                    src="https://i.imgur.com/jrnzZO3.png"
+                    alt="logo"
+                  />
                 </div>
               </Link>
             </div>

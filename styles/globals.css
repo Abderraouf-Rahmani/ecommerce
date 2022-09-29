@@ -60,22 +60,11 @@ a {
   align-items: center;
   position: relative;
   z-index: 900;
+  width: 120px;
 }
 
-.logo-sun {
-  min-width: 55px;
-  min-height: 55px;
-  border-radius: 50px;
-  background-color: #b6002c;
-  display: inline-block;
-  margin: 0px -25px;
-  position: relative;
-  z-index: 95;
-}
-
-.logo-wording {
-  position: relative;
-  z-index: 998;
+.logo-img {
+  width: 100%;
 }
 
 .nav-items {
