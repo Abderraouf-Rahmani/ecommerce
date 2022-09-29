@@ -13,8 +13,6 @@ const Category = ({ slug, products, categories }) => {
 
   const handleCategoryChange = (categoryChosen) => {
     setIsLoading(true);
-    console.log(categoryChosen);
-    // window.location.replace(`/category/${categoryChosen.toLowerCase()}`);
     router.push({
       pathname: `/category/${categoryChosen.toLowerCase()}`,
     });
@@ -118,7 +116,6 @@ export const getStaticPaths = async () => {
   categories.forEach((category) => {
     categoriesLowerCase.push(category.categoryName.toLowerCase());
   });
-  console.log(categoriesLowerCase);
 
   const paths = categoriesLowerCase.map((category) => ({
     params: {

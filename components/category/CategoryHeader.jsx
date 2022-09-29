@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 const CategoryHeader = ({ categoryName, categories }) => {
   const router = useRouter();
   const handleCategoryChange = (categoryChosen) => {
-    console.log(categoryChosen);
     // window.location.replace(`/category/${categoryChosen.toLowerCase()}`);
     router.push({
       pathname: `/category/${categoryChosen.toLowerCase()}`,

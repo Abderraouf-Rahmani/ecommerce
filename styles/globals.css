@@ -1031,14 +1031,15 @@ a {
 }
 
 select#select-category {
-  padding: 10px;
+  padding: 5px;
   background-color: rgb(244, 244, 244);
   font-size: 15px;
   font-weight: 500;
   color: rgb(41, 41, 41);
-  outline: 1px solid rgb(168, 168, 168);
+  /* outline: 1px solid rgb(168, 168, 168); */
   cursor: pointer;
   /* width: 250px; */
+  border: none;
 }
 
 select#select-category:focus {
@@ -1330,6 +1331,10 @@ select.filter-select:hover {
       top: 10px;
       transform: translateX(-50%);
     }
+  }
+
+  .category-header-center {
+    display: none;
   }
 }
 
