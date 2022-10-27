@@ -28,7 +28,7 @@ To run this project on your local machine make sure you have the latest package 
 ```
 2.  Install NPM packages
    ```sh
-   npm install npm@latest -g
+   npm install
 ```
 3. Create an .env file
 
