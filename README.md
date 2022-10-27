@@ -1,5 +1,5 @@
 <div align='center' >
-![Project Logo](https://i.imgur.com/jrnzZO3.png)
+<img src="https://i.imgur.com/jrnzZO3.png" alt="Alt text" title="Optional title">
 </div>
 
 
