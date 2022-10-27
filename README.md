@@ -1,53 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 <div align='center' >
-## Built with
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-</div>
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-## new Readme in the making
 [![N|Solid](https://i.imgur.com/jrnzZO3.png)](https://raouf.vercel.app/)
+</div>
+
+
+
 ## About The Project
 RAOUFラウフ is an eCommerce website that minimalistic and simple design lifestyle enthusiasts can buy from.
 
 ### Built With:
+- [NextJs](https://nextjs.org/)
+- [Vanilla Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Sanity.io](https://www.sanity.io/)
+- [Stripe](https://stripe.com/)
 
 ### Getting Started
 #### Prerequisites
@@ -60,15 +26,49 @@ To run this project on your local machine make sure you have the latest package 
 ```sh
    git clone https://github.com/Abderraouf-Rahmani/ecommerce.git
 ```
-   2. Install NPM packages
+2.  Install NPM packages
    ```sh
    npm install npm@latest -g
 ```
-3. Create .env file
-this project has four envirement variables:
+3. Create an .env file
+
+This project has four envirement variables:
 ```sh
-NEXT_PUBLIC_SANITY_TOKEN = <>
-SANITY_PROJECT_ID = <>
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = <>
-STRIPE_SECRET_KEY=<>
+NEXT_PUBLIC_SANITY_TOKEN = <your_sanity_token_here>
+SANITY_PROJECT_ID = <your_sanity_project_id_here>
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = <your_stripe_publishable_key_here>
+STRIPE_SECRET_KEY=<your_stripe_secret_key_here>
 ```
+
+* Sanity.io is an open source headless real-time CMS that you can customize with JavaScript and React, you'll need to create an account there and fill in the first two variables with their respective values.
+* The last two variables are from Stripe, which is a payment processing platform, you'll need to make an account as well and fill in the variables with their respective values.
+
+4. Run the development server
+
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+## Roadmap
+
+- [x] Make the website responsive
+- [x] Add Success and Cancelled pages
+- [ ] Add swiping functionality for the product's carousel.
+- [ ] Add a filter to sort products by price.
+- [ ] Multi-language Support
+    - [ ] French
+    - [ ] Arabic
+
+## Contact
+Feel free to connect with me on [Linkedin](https://www.linkedin.com/in/a-rahmani/)
+
+## Acknowledgments
+
+This project made possible because a [tutorial](https://www.youtube.com/watch?v=4mOkFXyxfsU) I watched on a youtube channel called [JavaScriptMastery](https://www.youtube.com/c/JavaScriptMastery), I just gave the front-end a better styling.
