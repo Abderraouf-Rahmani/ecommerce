@@ -1,12 +1,10 @@
-import Logo from '../../public/logo2.png'
-
 <div align='center' >
-<img src={Logo} alt="Alt text" title="Optional title">
+<img src="https://i.imgur.com/jrnzZO3.png" alt="Alt text" title="Optional title">
 </div>
 
 ## About The Project
 
-Akknife is an eCommerce website that minimalistic and simple design lifestyle enthusiasts can buy from.
+Akknives is an eCommerce website that minimalistic and simple design lifestyle enthusiasts can buy from.
 
 ### Built With:
 
@@ -32,7 +30,7 @@ To run this project on your local machine make sure you have the latest package 
 1. clone the repo:
 
 ```sh
-   git clone https://github.com/Junaid-sadiq/ecommerce.git
+   git clone https://github.com/Abderraouf-Rahmani/ecommerce.git
 ```
 
 2.  Install NPM packages

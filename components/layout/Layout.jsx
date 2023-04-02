@@ -8,6 +8,7 @@ const Layout = ({ children }) => {
     <div className="Layout">
       <Head>
         <title>Damascus knives</title>
+        <link rel="icon" href="/public/logo2.png" />
       </Head>
       <header className="header">
         <Navbar />
