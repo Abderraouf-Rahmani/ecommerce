@@ -1,6 +1,7 @@
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+console.log("stripe secret key", process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -12,8 +13,8 @@ export default async function handler(req, res) {
         payment_method_types: ["card"],
         billing_address_collection: "auto",
         shipping_options: [
-          { shipping_rate: "shr_1LnALQECVeQrA2OmTGlgMgz2" },
-          { shipping_rate: "shr_1LnMSTECVeQrA2OmgEsZtTfk" },
+          { shipping_rate: "shr_1MsP1JEF5yUZmM3fjDILBfKP" },
+          /*      { shipping_rate: "shr_1LnMSTECVeQrA2OmgEsZtTfk" }, */
         ],
 
         line_items: req.body.map((item) => {
@@ -21,13 +22,13 @@ export default async function handler(req, res) {
           const newImage = img
             .replace(
               "image-",
-              "https://cdn.sanity.io/images/0309uc88/production/"
+              "https://cdn.sanity.io/images/petif24p/production/"
             )
             .replace("-webp", ".webp");
 
           return {
             price_data: {
-              currency: "eur",
+              currency: "usd",
               product_data: {
                 name: item.name,
                 images: [newImage],

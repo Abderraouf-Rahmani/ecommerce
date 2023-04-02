@@ -3,6 +3,9 @@ import Link from "next/link";
 import CartSlide from "../cart/CartSlide";
 import { useStateContext } from "../../context/StateContext";
 
+import Logo from '../../public/logo2.png'
+import Image from "next/image";
+
 const Navbar = () => {
   const { totalQuantities, showCart, toggleCart } = useStateContext();
 
@@ -43,9 +46,9 @@ const Navbar = () => {
               {" "}
               <Link href="/">
                 <div className="logo-container">
-                  <img
+                  <Image
                     className="logo-img"
-                    src="https://i.imgur.com/jrnzZO3.png"
+                    src={Logo}
                     alt="logo"
                   />
                 </div>
@@ -57,10 +60,10 @@ const Navbar = () => {
                   <span className="nav-item">CATEGORIES</span>
                 </Link>
                 <Link href="/category/lamps">
-                  <span className="nav-item">LAMPS</span>
+                  <span className="nav-item">PREMIUM</span>
                 </Link>
                 <Link href="/category/furniture">
-                  <span className="nav-item">FURNITURE</span>
+                  <span className="nav-item">KITCHEN</span>
                 </Link>
               </div>
 
@@ -123,10 +126,10 @@ const Navbar = () => {
                     <span className="nav-item">CATEGORIES</span>
                   </Link>
                   <Link href="/category/lamps">
-                    <span className="nav-item">LAMPS</span>
+                    <span className="nav-item">PREMIUM</span>
                   </Link>
                   <Link href="/category/furniture">
-                    <span className="nav-item">FURNITURE</span>
+                    <span className="nav-item">KITCHEN</span>
                   </Link>
                 </div>
               </div>

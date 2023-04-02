@@ -40,9 +40,9 @@ export const getServerSideProps = async () => {
   const bottomBannerQuery = '*[_type == "BottomBanner"]';
   const bottomBanner = await client.fetch(bottomBannerQuery);
 
-  // const trendingQuery = '*[_type == "product"]';
-  // const trendingUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${trendingQuery}`;
-  // const trending = await fetch(trendingUrl).then((res) => res.json());
+  const trendingQuery = '*[_type == "product"]';
+  const trendingUrl = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${trendingQuery}`;
+  const trending = await fetch(trendingUrl).then((res) => res.json());
 
   return {
     props: {
