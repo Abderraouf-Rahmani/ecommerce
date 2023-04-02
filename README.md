@@ -1,5 +1,7 @@
+import Logo from '../../public/logo2.png'
+
 <div align='center' >
-<img src="https://i.imgur.com/jrnzZO3.png" alt="Alt text" title="Optional title">
+<img src={Logo} alt="Alt text" title="Optional title">
 </div>
 
 ## About The Project
@@ -30,7 +32,7 @@ To run this project on your local machine make sure you have the latest package 
 1. clone the repo:
 
 ```sh
-   git clone https://github.com/Abderraouf-Rahmani/ecommerce.git
+   git clone https://github.com/Junaid-sadiq/ecommerce.git
 ```
 
 2.  Install NPM packages
