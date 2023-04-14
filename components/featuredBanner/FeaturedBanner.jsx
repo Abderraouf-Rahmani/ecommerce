@@ -11,7 +11,7 @@ const FeaturedBanner = ({ featuredBanner }) => {
           <div className="featured-left">
             <h2 className="banner-title">{featuredBanner.title}</h2>
             <p className="featured-desc">{featuredBanner.desc}</p>
-            <ActionButton text="SOPE NOW" link="/category/furniture" />
+            <ActionButton text="SHOP NOW" link="/category/premium" />
           </div>
           <div className="featured-right">
             <img

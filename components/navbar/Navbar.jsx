@@ -3,7 +3,7 @@ import Link from "next/link";
 import CartSlide from "../cart/CartSlide";
 import { useStateContext } from "../../context/StateContext";
 
-import Logo from '../../public/logo2.png'
+import Logo from '../../public/logo9.svg'
 import Image from "next/image";
 
 const Navbar = () => {
@@ -59,10 +59,10 @@ const Navbar = () => {
                 <Link href="/category/all">
                   <span className="nav-item">CATEGORIES</span>
                 </Link>
-                <Link href="/category/lamps">
+                <Link href="/category/premium">
                   <span className="nav-item">PREMIUM</span>
                 </Link>
-                <Link href="/category/furniture">
+                <Link href="/category/kitchen%20knives">
                   <span className="nav-item">KITCHEN</span>
                 </Link>
               </div>
