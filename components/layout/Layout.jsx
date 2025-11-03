@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 const Layout = ({ children }) => {
   return (
@@ -16,6 +17,7 @@ const Layout = ({ children }) => {
       <footer>
         <Footer />
       </footer>
+      <Analytics />
     </div>
   );
 };
